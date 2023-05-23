@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Special Place</title>
+    <script>
+    </script>
+    <style>
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 150%;
+        }
+        h1 {
+            color: rgb(223, 62, 255);
+            background-color: rgb(0, 0, 0);
+        }
+        .flex {
+            padding: 1em 2em;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post {
+            padding: 1em 1em;
+            outline: 1px solid rgb(0, 0, 0);
+        }
+
+        nav a {
+            color: #d64160;
+            font-size: 1em;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="{{url_for('index')}}">home</a>
+    </nav>
+    <hr>
+    <div class="content">
+        <h1>/ᐠ｡ꞈ｡ᐟ\ Cat Jazz Café </h1>
+        
+        <div class="flex">
+        {% for post in posts %}
+        <div class="post">
+            <p>id: {{ post['id']}} {{ post['created'] }} </p>
+            <p>title: {{ post['title'] }}</p>
+            <p>content: {{ post['content'] }}</p>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
